@@ -1,3 +1,3 @@
-# curso2020
+# curso 2020
 Repositorio de curso de AEDOO
 Vamos a hacer un helpdesk
