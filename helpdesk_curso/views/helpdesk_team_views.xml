@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015-11/03/20 Alia Technologies, S.L. - http://www.alialabs.com
+     @author:alia
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="helpdesk_team_action" model="ir.actions.act_window">
+        <field name="name">Team</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">helpdesk.team</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new Stage
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="helpdesk_team_menu"
+              parent="helpdesk_curso.helpdesk_ticket_config_menu"
+              action="helpdesk_team_action"
+              sequence="20"/>
+
+    <record id="view_helpdesk_team_form" model="ir.ui.view">
+        <field name="name">view.helpdesk_team.form</field>
+        <field name="model">helpdesk.team</field>
+        <field name="arch" type="xml">
+            <form string="Team">
+                <sheet>
+                    <group name="main">
+                        <group name="name">
+                            <field name="name"/>
+                        </group>
+                    </group>
+                    <group name="tickets">
+                        <field name="ticket_ids"/>
+                    </group>
+                    <group name="users">
+                        <field name="user_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_helpdesk_team_tree" model="ir.ui.view">
+        <field name="name">view.helpdesk_team.tree</field>
+        <field name="model">helpdesk.team</field>
+        <field name="arch" type="xml">
+            <tree string="Teams">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_helpdesk_team_search" model="ir.ui.view">
+        <field name="name">view.helpdesk_team.search</field>
+        <field name="model">helpdesk.team</field>
+        <field name="arch" type="xml">
+            <search string="Stage">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

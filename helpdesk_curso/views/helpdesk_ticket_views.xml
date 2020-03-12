@@ -8,9 +8,74 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">helpdesk.ticket</field>
         <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new Ticket
+            </p>
+        </field>
     </record>
 
-    <menuitem id="menu_hd_ticket" name="Tickets"
-              action="helpdesk_ticket_action" sequence="100"/>
+    <menuitem id="helpdesk_ticket_menu"
+              parent="helpdesk_curso.helpdesk_ticket_main_menu"
+              action="helpdesk_ticket_action"
+              sequence="20"/>
+
+    <record id="view_helpdesk_ticket_form" model="ir.ui.view">
+        <field name="name">view.helpdesk_ticket.form</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <form string="Ticket">
+                <header>
+                    <button name="%(helpdesk_curso.helpdesk_set_responsible_action)d" string="Assign to me (wizard)" type="action"/>
+                    <button name="set_responsible" string="Set Responsible" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group name="main">
+                        <group name="name">
+                            <field name="name"/>
+                            <field name="responsible_id"/>
+                        </group>
+                        <group name="info">
+                            <field name="date_deadline"/>
+                            <field name="team_id"/>
+                            <field name="stage_id"/>
+                            <field name="user_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <group name="description" string="Description">
+                        <field name="description" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_helpdesk_ticket_tree" model="ir.ui.view">
+        <field name="name">view.helpdesk_ticket.tree</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <tree string="Tickets">
+                <field name="name"/>
+                <field name="description" optional="hide"/>
+                <field name="date_deadline" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_helpdesk_ticket_search" model="ir.ui.view">
+        <field name="name">view.helpdesk_ticket.search</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <search string="Ticket">
+                <field name="name"/>
+                <field name="description"/>
+                <group string="Group By" name="groupby">
+                    <filter name="date_deadline_group_by" string="date" context="{}"/>
+                </group>
+            </search>
+        </field>
+    </record>
 
 </odoo>

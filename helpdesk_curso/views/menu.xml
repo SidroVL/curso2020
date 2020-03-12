@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015-12/03/20 Alia Technologies, S.L. - http://www.alialabs.com 
+     @author:alia
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+
+    <menuitem id="helpdesk_menu"
+              name="Helpdesk"
+              sequence="10"/>
+
+    <menuitem id="helpdesk_ticket_main_menu"
+              name="Tickets"
+              parent="helpdesk_curso.helpdesk_menu"
+              sequence="10"/>
+
+
+    <menuitem id="helpdesk_ticket_config_menu"
+              name="Configuration"
+              parent="helpdesk_curso.helpdesk_menu"
+              sequence="20"/>
+
+</odoo>

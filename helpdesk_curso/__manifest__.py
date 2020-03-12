@@ -21,6 +21,7 @@
    'depends': [
        # Project Dependencies
        # Base Dependencies
+       'base',
    ],
    'demo': [],
    'data': [
@@ -29,7 +30,12 @@
        'security/ir.model.access.csv',
        # Data
        # Views
+       'views/menu.xml',
+       'wizard/helpdesk_set_responsible_views.xml',
        'views/helpdesk_ticket_views.xml',
+       'views/helpdesk_team_views.xml',
+       'views/helpdesk_ticket_stage_views.xml',
+       'views/res_users_views.xml',
    ],
    'qweb': [],
    'demo': [],
